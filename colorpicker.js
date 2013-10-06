@@ -52,7 +52,7 @@
 
   Picker.prototype.onmousewheel = function(e){
     e.preventDefault();
-    var delta = e.wheelDelta;
+    var delta = e.originalEvent.wheelDelta;
     delta += (this.prev || 0);
     if (-500 > delta) return;
     if (500 < delta) return;
