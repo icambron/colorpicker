@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>colorpicker</title>
-    <script src='build/build.js'></script>
+    <script src='vendor/jquery.min.js'></script>
+    <script src='colorpicker.js'></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
 
@@ -44,8 +45,8 @@
   </head>
   <body>
 
-    <div></div>
-    <span>#fff</span>
+    <div id='colorp'></div>
+    <span id='output'>#fff</span>
     <div class='explain'>
       <p>
         Use you'r mousewheel for saturation,
@@ -53,19 +54,10 @@
       </p>
     </div>
 
-
     <script>
-      var el = document.querySelector('div:first-child');
-      var span = document.querySelector('span');
-      var picker = require('colorpicker');
-      picker = picker(el);
-      picker.freeze(500);
-
-      picker.on('pick', function(){
-        span.innerText = el.style.background;
+      $('#colorp').colorPicker().on('pick', function(e, el) {
+        $('#output').text(el.style.background);
       });
-
-      span.innerText = el.style.background;
     </script>
   </body>
 </html>
